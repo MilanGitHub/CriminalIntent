@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,12 +49,13 @@ public class CrimeFragment extends Fragment {
                 // This one too
             }
         });
-
-        mDateButton = (Button)v.findViewById(R.id.crime_date);
-        mDateButton.setText(mCrime.getDate().toString());
+        mDateButton = (Button) v.findViewById(R.id.crime_date);
+        CharSequence d = DateFormat.format("dd.MM.yyy HH:MM:ss", mCrime.getDate());
+        //DateFormat df = DateFormat. .getDateTimeInstance();
+        mDateButton.setText(d); //mCrime.getDate().toString());
         mDateButton.setEnabled(false);
 
-        mSolvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
+        mSolvedCheckBox = (CheckBox) v.findViewById(R.id.crime_solved);
         mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
