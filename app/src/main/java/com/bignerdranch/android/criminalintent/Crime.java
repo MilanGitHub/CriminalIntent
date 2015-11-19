@@ -10,6 +10,8 @@ public class Crime {
     private UUID mId;
     private String mTitle;
     private Date mDate;
+    private String mSuspect;
+
 
     public Date getDate() {
         return mDate;
@@ -49,5 +51,11 @@ public class Crime {
     public UUID getId() {
 
         return mId;
+    }public String getSuspect() {
+        return mSuspect;
+    }
+
+    public void setSuspect(String suspect) {
+        mSuspect = suspect;
     }
 }
